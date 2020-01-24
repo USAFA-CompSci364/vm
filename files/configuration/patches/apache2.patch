@@ -1,0 +1,18 @@
+diff -u -r php7.2.conf php7.2.conf
+--- /etc/apache2/mods-available/php7.2.conf	2020-01-21 15:37:04.749186590 -0800
++++ /etc/apache2/mods-available/php7.2.conf	2020-01-21 15:40:25.181194660 -0800
+@@ -12,14 +12,3 @@
+ <FilesMatch "^\.ph(ar|p|ps|tml)$">
+     Require all denied
+ </FilesMatch>
+-
+-# Running PHP scripts in user directories is disabled by default
+-# 
+-# To re-enable PHP in user directories comment the following lines
+-# (from <IfModule ...> to </IfModule>.) Do NOT set it to On as it
+-# prevents .htaccess files from disabling it.
+-<IfModule mod_userdir.c>
+-    <Directory /home/*/public_html>
+-        php_admin_flag engine Off
+-    </Directory>
+-</IfModule>
