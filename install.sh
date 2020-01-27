@@ -28,8 +28,8 @@ for service in $services; do
 
   # patch configuration (if patches exist)
   if [ -e "files/configuration/patches/$service.patch" ]; then
-    sudo patch --dry-run -d / -p0 -ruN < "files/configuration/patches/$service.patch"
-    sudo patch           -d / -p0 -ruN < "files/configuration/patches/$service.patch"
+    sudo patch --batch --dry-run -d / -p0 -ruN < "files/configuration/patches/$service.patch"
+    sudo patch --batch           -d / -p0 -ruN < "files/configuration/patches/$service.patch"
   fi
 
   # perform additional configuration (if it exists)
