@@ -1,0 +1,5 @@
+language: generic
+
+script:
+  - touch databases.yaml
+  - ./setup.sh
