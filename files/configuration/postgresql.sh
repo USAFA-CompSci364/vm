@@ -84,7 +84,7 @@ while read -r line; do
 
   sudo -H -u postgres psql <<-SQL
 	-- create user
-	CREATE USER $username WITH LOGIN PASSWORD '$password';
+	CREATE USER $username WITH CREATEDB LOGIN PASSWORD '$password';
 
 	-- create database owned by user
 	CREATE DATABASE $username WITH OWNER $username;
