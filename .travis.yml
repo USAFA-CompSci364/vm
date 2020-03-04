@@ -2,6 +2,9 @@ dist: bionic
 
 language: generic
 
+services:
+  - mysql
+
 script:
   - touch databases.yaml
   - ./setup.sh
