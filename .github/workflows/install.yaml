@@ -1,0 +1,17 @@
+name: Install
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: install
+        run: |
+          ./install.sh
+      - name: setup
+        run: |
+          ./setup.sh
