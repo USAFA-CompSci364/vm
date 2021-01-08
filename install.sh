@@ -27,12 +27,10 @@ for service in $services; do
   sudo apt install --yes $(cat "files/packages/$service")
 
   # patch configuration (if patches exist)
-  for patch in $(ls "files/configuration/patches/$service" | sort); do
-    path=${patch:3}  # strip patch number
-    path=${path//--/\/}  # replace `--` with `/`
-    sudo patch --dry-run -ruN $path < "$patch"
-    sudo patch           -ruN $path < "$patch"
-  done
+  if [ -e "files/configuration/patches/$service.patch" ]; then
+    sudo patch --dry-run -d / -p0 -ruN < "files/configuration/patches/$service.patch"
+    sudo patch           -d / -p0 -ruN < "files/configuration/patches/$service.patch"
+  fi
 
   # perform additional configuration (if it exists)
   if [ -e "files/configuration/$service.sh" ]; then
