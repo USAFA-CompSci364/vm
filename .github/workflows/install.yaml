@@ -6,12 +6,22 @@ on:
 
 jobs:
   install:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+
+    container: ubuntu:20.04
+
     steps:
+      - name: Install prerequisites
+        run: |
+          apt update --quiet --quiet
+          apt install --no-install-recommends --quiet --yes \
+                  patch \
+                  sudo
+
+          DEBIAN_FRONTEND=noninteractive \
+          apt install --no-install-recommends --quiet --yes \
+                  tzdata
       - uses: actions/checkout@v2
       - name: install
         run: |
           ./install.sh
-      - name: setup
-        run: |
-          ./setup.sh
