@@ -10,6 +10,9 @@ jobs:
 
     container: ubuntu:20.04
 
+    env:
+      DEBIAN_FRONTEND: noninteractive
+
     steps:
       - name: Install prerequisites
         run: |
@@ -18,7 +21,6 @@ jobs:
                   patch \
                   sudo
 
-          DEBIAN_FRONTEND=noninteractive \
           apt install --no-install-recommends --quiet --yes \
                   tzdata
       - uses: actions/checkout@v2
