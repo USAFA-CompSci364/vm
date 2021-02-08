@@ -8,22 +8,8 @@ jobs:
   install:
     runs-on: ubuntu-latest
 
-    container: ubuntu:20.04
-
-    env:
-      DEBIAN_FRONTEND: noninteractive
-
     steps:
-      - name: Install prerequisites
-        run: |
-          apt update --quiet --quiet
-          apt install --no-install-recommends --quiet --yes \
-                  patch \
-                  sudo
-
-          apt install --no-install-recommends --quiet --yes \
-                  tzdata
       - uses: actions/checkout@v2
       - name: install
         run: |
-          ./install.sh
+          docker build .
