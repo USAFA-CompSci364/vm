@@ -43,7 +43,7 @@ set -x
 # move configuration and data files to another location (e.g., separate disk)
 if [ -n "$destination" ]; then
   # stop the PostgreSQL server
-  sudo systemctl stop postgresql
+  sudo service postgresql stop
 
   # move configuration files and replace with symbolic link
   sudo mkdir --parents "$destination/etc/"
@@ -62,10 +62,10 @@ if [ -n "$destination" ]; then
     sudo rm -rf /var/lib/postgresql
   fi
   sudo ln --symbolic "$destination/var/lib/postgresql/" /var/lib/.
-
-  # restart the PostgreSQL server
-  sudo systemctl start postgresql
 fi
+
+# (re)start the PostgreSQL server
+sudo service postgresql start
 
 # ensure that the server is running
 pg_isready
