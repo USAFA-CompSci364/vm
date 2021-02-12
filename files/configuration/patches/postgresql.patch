@@ -1,6 +1,6 @@
-diff -u -r 12/main/pg_hba.conf 12/main/pg_hba.conf
---- /etc/postgresql/12/main/pg_hba.conf	2020-01-14 23:39:24.317740024 +0000
-+++ /etc/postgresql/12/main/pg_hba.conf	2020-01-14 23:23:46.956158422 +0000
+diff -u -r 10/main/pg_hba.conf 10/main/pg_hba.conf
+--- /etc/postgresql/10/main/pg_hba.conf	2020-01-14 23:39:24.317740024 +0000
++++ /etc/postgresql/10/main/pg_hba.conf	2020-01-14 23:23:46.956158422 +0000
 @@ -90,6 +90,7 @@
  local   all             all                                     peer
  # IPv4 local connections:
@@ -9,9 +9,9 @@ diff -u -r 12/main/pg_hba.conf 12/main/pg_hba.conf
  # IPv6 local connections:
  host    all             all             ::1/128                 md5
  # Allow replication connections from localhost, by a user with the
-diff -u -r 12/main/postgresql.conf 12/main/postgresql.conf
---- /etc/postgresql/12/main/postgresql.conf	2020-01-14 23:39:24.337740231 +0000
-+++ /etc/postgresql/12/main/postgresql.conf	2020-01-14 21:36:19.004224092 +0000
+diff -u -r 10/main/postgresql.conf 10/main/postgresql.conf
+--- /etc/postgresql/10/main/postgresql.conf	2020-01-14 23:39:24.337740231 +0000
++++ /etc/postgresql/10/main/postgresql.conf	2020-01-14 21:36:19.004224092 +0000
 @@ -56,7 +56,7 @@
  
  # - Connection Settings -
