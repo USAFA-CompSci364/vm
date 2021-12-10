@@ -30,3 +30,6 @@ db/restore.sh "$OLDPWD/databases.yaml"
 if ! [ -d ~/public_html ]; then
   mkdir ~/public_html
 fi
+
+echo
+echo "Setup completed successfully!"
