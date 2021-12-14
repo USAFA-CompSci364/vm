@@ -8,9 +8,17 @@ on:
 jobs:
   install:
     runs-on: ubuntu-18.04
-
+    env:
+      DEBIAN_FRONTEND: noninteractive
     steps:
       - uses: actions/checkout@v2
+      - name: install dependencies
+        run: |
+          apt install --no-install-recommends --quiet --yes \
+              apt-utils \
+              patch \
+              sudo \
+              tzdata
       - name: install
         run: |
-          docker build .
+          ./install.sh
