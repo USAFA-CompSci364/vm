@@ -21,7 +21,7 @@ sudo service mysql start
 while read -r line; do
   read -r username password <<<$(echo "$line" | sed 's/:/ /')
 
-  sudo -H mysql -p"$(echo $DB_PASSWORD)" <<-SQL
+  sudo -H mysql --password="$(echo $DB_PASSWORD)" <<-SQL
 	-- create user
 	CREATE USER '$username'@'localhost' IDENTIFIED BY '$password';
 
