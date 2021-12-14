@@ -20,11 +20,12 @@ fi
 
 
 # update package repository
-sudo apt update
+sudo --preserve-env=DEBIAN_FRONTEND apt update
 
 # install and configure packages
 for service in $services; do
-  sudo apt install --yes $(cat "files/packages/$service")
+  sudo --preserve-env=DEBIAN_FRONTEND \
+      apt install --yes $(cat "files/packages/$service")
 
   # patch configuration (if patches exist)
   if [ -e "files/configuration/patches/$service.patch" ]; then
