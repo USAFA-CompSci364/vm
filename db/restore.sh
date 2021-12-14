@@ -30,7 +30,7 @@ while read -r line; do
 
   # download database dump
   filename="$(mktemp)"
-  curl --cookie-jar $(mktemp) --location --output "$filename" "$url"
+  curl --cookie-jar $(mktemp) --fail --location --output "$filename" "$url"
 
   # drop and (re)create database
   sudo -H -u postgres dropdb --if-exists "$database"
