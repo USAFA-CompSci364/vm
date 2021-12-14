@@ -21,4 +21,4 @@ set -x
 
 
 sudo -H -u postgres \
-    psql --dbname="$database" --echo-errors --quiet "$@"
+    psql --dbname="$database" --echo-errors --quiet --set=ON_ERROR_STOP=on "$@"
