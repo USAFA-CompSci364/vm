@@ -31,5 +31,10 @@ if ! [ -d ~/public_html ]; then
   mkdir ~/public_html
 fi
 
+
+# stop echoing commands to terminal
+set +x
+
+
 echo
 echo "Setup completed successfully!"
