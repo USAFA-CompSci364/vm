@@ -22,6 +22,10 @@ set -x
 
 
 while read -r line; do
+  if [ -z "$line" ]; then
+    continue
+  fi
+
   read -r database url <<<$(echo "$line" | sed 's/:/ /')
 
   # download database dump
