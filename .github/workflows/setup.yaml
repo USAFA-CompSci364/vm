@@ -28,3 +28,9 @@ jobs:
           DATABASES
 
           ./setup.sh
+      - name: verify database restore
+        run: |
+          diff --unified \
+              <(echo "   242"; echo) \
+              <(psql --command="SELECT COUNT(*) FROM country;" \
+                     --dbname="ISO3166" --tuples-only)
