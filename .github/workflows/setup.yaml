@@ -32,5 +32,5 @@ jobs:
           # verify database(s) created by setup
           diff --unified \
               <(echo "   242"; echo) \
-              <(psql --command="SELECT COUNT(*) FROM country;" \
+              <(sudo psql --command="SELECT COUNT(*) FROM country;" \
                      --dbname="ISO3166" --tuples-only)
