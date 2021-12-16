@@ -13,11 +13,15 @@ cd "$(dirname "$0")"
 set -x
 
 
+# start MySQL
+sudo service mysql start
+
+
 # create database users
 while read -r line; do
   read -r username password <<<$(echo "$line" | sed 's/:/ /')
 
-  sudo -H mysql <<-SQL
+  sudo -H mysql --password="$(echo ${DB_PASSWORD:-})" <<-SQL
 	-- create user
 	CREATE USER '$username'@'localhost' IDENTIFIED BY '$password';
 

@@ -1,0 +1,26 @@
+name: Install
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-18.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v2
+      - name: install dependencies
+        run: |
+          sudo apt install --no-install-recommends --quiet --yes \
+              apt-utils \
+              patch \
+              sudo \
+              tzdata
+      - name: install
+        env:
+          DB_PASSWORD: root
+        run: |
+          ./install.sh
