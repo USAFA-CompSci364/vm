@@ -1,0 +1,30 @@
+name: Setup
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-18.04
+    env:
+      DEBIAN_FRONTEND: noninteractive
+    steps:
+      - uses: actions/checkout@v2
+      - name: install dependencies
+        run: |
+          sudo apt install --no-install-recommends --quiet --yes \
+              apt-utils \
+              patch \
+              sudo \
+              tzdata
+      - name: setup
+        env:
+          DB_PASSWORD: root
+        run: |
+          cat > "databases.yaml" <<- DATABASES
+            ISO3166: https://gist.githubusercontent.com/joel-coffman/be4e788a0d8d4bd5edbd4f525e2af544/raw/iso-3166.sql
+          DATABASES
+
+          ./setup.sh
