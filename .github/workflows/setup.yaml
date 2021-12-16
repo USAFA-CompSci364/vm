@@ -28,8 +28,8 @@ jobs:
           DATABASES
 
           ./setup.sh
-
-          # verify database(s) created by setup
+      - name: verify database restore
+        run: |
           diff --unified \
               <(echo "   242"; echo) \
               <(psql --command="SELECT COUNT(*) FROM country;" \
