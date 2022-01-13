@@ -31,6 +31,12 @@ if ! [ -d ~/public_html ]; then
   mkdir ~/public_html
 fi
 
+# enable PHP error reporting
+cat - > ~/public_html/.htaccess <<- .htaccess
+php_flag display_errors on
+php_flag html_errors on
+.htaccess
+
 
 # stop echoing commands to terminal
 set +x
