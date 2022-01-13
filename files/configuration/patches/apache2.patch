@@ -16,3 +16,15 @@ diff -u -r php7.2.conf php7.2.conf
 -        php_admin_flag engine Off
 -    </Directory>
 -</IfModule>
+diff -u -r userdir.conf userdir.conf
+--- /etc/apache2/mods-available/userdir.conf	2020-03-18 19:38:22.270154775 -0600
++++ /etc/apache2/mods-available/userdir.conf	2020-03-18 19:38:13.762410778 -0600
+@@ -3,7 +3,7 @@
+ 	UserDir disabled root
+
+ 	<Directory /home/*/public_html>
+-		AllowOverride FileInfo AuthConfig Limit Indexes
++		AllowOverride FileInfo AuthConfig Limit Indexes Options
+ 		Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+ 		Require method GET POST OPTIONS
+ 	</Directory>
