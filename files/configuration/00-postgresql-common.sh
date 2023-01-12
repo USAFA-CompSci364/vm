@@ -10,5 +10,4 @@ set -x
 
 
 # configure PostgreSQL backports
-mkdir --parents /etc/apt/sources.list.d/
 echo | sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
