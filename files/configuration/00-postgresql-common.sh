@@ -10,4 +10,4 @@ set -x
 
 
 # configure PostgreSQL backports
-echo | sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+echo | sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
