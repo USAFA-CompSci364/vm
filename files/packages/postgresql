@@ -1,4 +1,4 @@
 pgadmin3
-postgresql
+postgresql-9.5
 postgresql-client-common
-postgresql-contrib
+postgresql-contrib-9.5
