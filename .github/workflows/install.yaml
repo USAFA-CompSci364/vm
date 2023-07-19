@@ -16,6 +16,7 @@ jobs:
         run: |
           sudo apt install --no-install-recommends --quiet --yes \
               apt-utils \
+              ca-certificates \
               patch \
               sudo \
               tzdata
