@@ -5,13 +5,31 @@ set -o pipefail
 set -u
 
 
-if ! [ -e "databases.yaml" ]; then
+os="$(lsb_release --id --short) $(lsb_release --release --short)"
+echo "Checking operating system... ${os}"
+if [ "${os}" != "Ubuntu 22.04" ]; then
   {
-    echo -n "Please download the database configuration (databases.yaml) "
+    echo "$(lsb_release --description --short) is not supported"
+  } >&2  # echo to stderr
+  exit 1
+fi
+
+echo -n "Checking for database configuration... "
+if [ -e "databases.yaml" ]; then
+  echo "found"
+else
+  echo "missing"
+  {
+    echo
+    echo -n "Download the database configuration (databases.yaml) "
     echo    "and place it in the current directory ($PWD)"
   } >&2  # echo to stderr
   exit 1
 fi
+
+echo
+echo "Starting setup..."
+echo
 
 
 # echo commands to terminal
