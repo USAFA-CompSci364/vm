@@ -7,15 +7,18 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
+    container: ubuntu:18.04
     env:
       DEBIAN_FRONTEND: noninteractive
     steps:
       - uses: actions/checkout@v2
       - name: install dependencies
         run: |
-          sudo apt install --no-install-recommends --quiet --yes \
+          apt update
+          apt install --no-install-recommends --quiet --yes \
               apt-utils \
+              gnupg \
               patch \
               sudo \
               tzdata
