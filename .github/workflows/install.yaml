@@ -23,6 +23,9 @@ jobs:
               patch \
               sudo \
               tzdata
+      - name: services
+        run: |
+          service --status-all
       - name: install
         env:
           DB_PASSWORD: root
