@@ -19,6 +19,10 @@ jobs:
               patch \
               sudo \
               tzdata
+      - name: remove incompatible packages
+        run: |
+          sudo apt remove --quiet --yes \
+              php7.4-common
       - name: setup
         env:
           DB_PASSWORD: root
