@@ -24,4 +24,4 @@ sudo sh -c \
      pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 
 # install pgAdmin 4
-sudo apt install pgadmin4-desktop
+sudo apt install --quiet --yes pgadmin4-desktop
