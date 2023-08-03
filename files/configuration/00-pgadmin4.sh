@@ -15,7 +15,7 @@ set -x
 
 # install the public key for the repository
 curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub \
-    | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+    | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg --yes
 
 # create apt configuration file
 sudo sh -c \
