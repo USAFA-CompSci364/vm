@@ -7,7 +7,7 @@ on:
 
 jobs:
   install:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
       DEBIAN_FRONTEND: noninteractive
     steps:
@@ -20,10 +20,6 @@ jobs:
               patch \
               sudo \
               tzdata
-      - name: remove incompatible packages
-        run: |
-          sudo apt remove --quiet --yes \
-              php7.4-common
       - name: install
         env:
           DB_PASSWORD: root

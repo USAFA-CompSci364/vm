@@ -1,6 +1,6 @@
-diff -u -r php7.4.conf php7.4.conf
---- /etc/apache2/mods-available/php7.4.conf	2020-01-21 15:37:04.749186590 -0800
-+++ /etc/apache2/mods-available/php7.4.conf	2020-01-21 15:40:25.181194660 -0800
+diff -u php8.1.conf.orig php8.1.conf
+--- /etc/apache2/mods-available/php8.1.conf	2023-07-19 11:34:30.478398010 -0600
++++ /etc/apache2/mods-available/php8.1.conf	2023-07-19 11:34:52.224008006 -0600
 @@ -12,14 +12,3 @@
  <FilesMatch "^\.ph(ar|p|ps|tml)$">
      Require all denied
@@ -16,9 +16,9 @@ diff -u -r php7.4.conf php7.4.conf
 -        php_admin_flag engine Off
 -    </Directory>
 -</IfModule>
-diff -u -r userdir.conf userdir.conf
---- /etc/apache2/mods-available/userdir.conf	2020-03-18 19:38:22.270154775 -0600
-+++ /etc/apache2/mods-available/userdir.conf	2020-03-18 19:38:13.762410778 -0600
+diff -u userdir.conf.orig userdir.conf
+--- /etc/apache2/mods-available/userdir.conf	2023-07-19 11:35:12.148053001 -0600
++++ /etc/apache2/mods-available/userdir.conf	2023-07-19 11:35:30.370053010 -0600
 @@ -3,7 +3,7 @@
  	UserDir disabled root
 

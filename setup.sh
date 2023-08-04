@@ -7,7 +7,7 @@ set -u
 
 os="$(lsb_release --id --short) $(lsb_release --release --short)"
 echo "Checking operating system... ${os}"
-if [ "${os}" != "Ubuntu 20.04" ]; then
+if [ "${os}" != "Ubuntu 22.04" ]; then
   {
     echo "$(lsb_release --description --short) is not supported"
   } >&2  # echo to stderr

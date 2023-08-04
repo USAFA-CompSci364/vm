@@ -1,18 +1,18 @@
-iff -u -r 9.5/main/pg_hba.conf 9.5/main/pg_hba.conf
---- /etc/postgresql/9.5/main/pg_hba.conf	2020-01-14 23:39:24.317740024 +0000
-+++ /etc/postgresql/9.5/main/pg_hba.conf	2020-01-14 23:23:46.956158422 +0000
-@@ -90,6 +90,7 @@
+diff -u pg_hba.conf.orig pg_hba.conf
+--- /etc/postgresql/14/main/pg_hba.conf	2023-07-19 11:23:50.573647006 -0600
++++ /etc/postgresql/14/main/pg_hba.conf	2023-07-19 11:24:35.077434012 -0600
+@@ -95,6 +95,7 @@
  local   all             all                                     peer
  # IPv4 local connections:
- host    all             all             127.0.0.1/32            md5
-+host    all             all             0.0.0.0/0               md5
+ host    all             all             127.0.0.1/32            scram-sha-256
++host    all             all             0.0.0.0/32              scram-sha-256
  # IPv6 local connections:
- host    all             all             ::1/128                 md5
+ host    all             all             ::1/128                 scram-sha-256
  # Allow replication connections from localhost, by a user with the
-diff -u -r 9.5/main/postgresql.conf 9.5/main/postgresql.conf
---- /etc/postgresql/9.5/main/postgresql.conf	2020-01-14 23:39:24.337740231 +0000
-+++ /etc/postgresql/9.5/main/postgresql.conf	2020-01-14 21:36:19.004224092 +0000
-@@ -56,7 +56,7 @@
+diff -u postgresql.conf.orig postgresql.conf
+--- /etc/postgresql/14/main/postgresql.conf	2023-07-19 11:23:55.970647008 -0600
++++ /etc/postgresql/14/main/postgresql.conf	2023-07-19 11:25:44.547544003 -0600
+@@ -57,7 +57,7 @@
  
  # - Connection Settings -
  
