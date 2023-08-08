@@ -18,6 +18,6 @@ script installs required packages, configures services, and creates databases
 Notes
 =====
 
-The existing scripts target Ubuntu 18.04 LTS. In theory, they can be used for
+The existing scripts target Ubuntu 22.04 LTS. In theory, they can be used for
 any Debian-based Linux distribution, but several steps, such as patching the
 configuration of services, may have to be modified.
