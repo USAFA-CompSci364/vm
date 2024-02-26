@@ -17,5 +17,5 @@ set -x
 sudo service mysql stop
 
 
-# remove MySQL configuration and data
-sudo rm -rf /etc/mysql /var/lib/mysql
+# remove MySQL data directory (i.e., databases)
+sudo rm -rf /var/lib/mysql
