@@ -23,6 +23,11 @@ fi
 # remove packages and their configuration
 for service in $services; do
   sudo apt purge --yes $(cat "files/packages/$service")
+
+  # perform additional configuration (if it exists)
+  if [ -e "files/uninstall/$service.sh" ]; then
+    files/uninstall/"$service.sh"
+  fi
 done
 
 # remove packages' dependencies that were automatically installed
