@@ -49,6 +49,9 @@ if ! [ -d ~/public_html ]; then
   mkdir ~/public_html
 fi
 
+# add Apache user (www-data) to the user's group
+sudo usermod --append --groups $(whoami) www-data
+
 # enable PHP error reporting
 cat - > ~/public_html/.htaccess <<- .htaccess
 php_flag display_errors on
